@@ -1,0 +1,80 @@
+
+
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+	<title>Graficos com ChartJS</title>
+
+    <style type="text/css">
+
+    *{
+        font-family: arial;        
+    }
+
+    .box {
+        margin: 0px auto;
+        width: 60%;
+    }
+
+    .box-grafico {
+        width: 100%;
+        margin: 0 auto;
+        padding: 15px;
+    }
+
+    </style>  
+	<script src="Scripts/Chart.min.js"></script>
+    <script type="text/javascript">
+        var aleatorio = function(){ return Math.round(Math.random()*10)};
+    </script>  
+
+</head>
+<body>
+	<div class="box">
+
+        <h1>ChartJS</h1>
+        <small>Exemplo de Gráfico com ChartJS.</small>
+
+        <h2>Gráfico Barra</h2>
+        <small>Vendas da empresa do ano de 2015.</small>
+		
+        <div class="box-grafico">
+
+            <canvas id="ChartBar" style="width:100%;"></canvas>
+
+            <script type="text/javascript">                                        
+
+                var options = {
+                    responsive:true
+                };
+
+                var data = {
+                    labels: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
+                    datasets: [
+                        {
+                            label: "Goiânia",
+                            fillColor: "#20B2AA",
+                            data: [aleatorio(), aleatorio(), aleatorio(), aleatorio(), aleatorio(), aleatorio(), aleatorio(), aleatorio(), aleatorio(), aleatorio(), aleatorio(), aleatorio()]
+                        },
+                        {
+                            label: "Brasília",
+                            fillColor: "#00BFFF",
+                            data: [aleatorio(), aleatorio(), aleatorio(), aleatorio(), aleatorio(), aleatorio(), aleatorio(), aleatorio(), aleatorio(), aleatorio(), aleatorio(), aleatorio()]
+                        }
+                    ]
+                };                
+
+                window.onload = function(){
+                    var ctx = document.getElementById("ChartBar").getContext("2d");
+                    var grafico = new Chart(ctx).Bar(data, options);
+					
+					}           
+            </script>
+
+           
+        </div>
+    
+    </div>
+</body>
+</html>
